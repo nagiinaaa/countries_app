@@ -1,11 +1,11 @@
-import CountriesBucketList from './containers/CountriesBucketList';
+import AllCountries from './containers/AllCountries';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          <CountriesBucketList/>
+          <AllCountries/>
         </p>
       </header>
     </div>

@@ -17,7 +17,9 @@ const Country = ({country,onVisit}) => {
             { //<button onClick={() => addToBucketList(country.id)}>Add To Bucket List</button>
             //<button onClick={() => removeFromBucketList(country.id)}>Remove From Bucket List</button>
         }
-        {<button onClick={() => addToVisited(country.id)}>Mark as Visited</button>}
+        {
+            //<button onClick={() => addToVisited(country.id)}>Mark as Visited</button>
+        }
 
         </div>
     )
