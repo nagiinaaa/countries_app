@@ -1,4 +1,5 @@
 import AllCountries from './containers/AllCountries';
+import '../src/App.css';
 
 function App() {
   return (

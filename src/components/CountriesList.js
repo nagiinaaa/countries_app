@@ -1,15 +1,15 @@
 import Country from "./Country";
 
-const CountriesList = ({countries, visited}) => {
+const CountriesList = ({countries, onVisit, onBucket}) => {
 
     const countryComponents = countries.map(country => {
         return(
-            <Country country={country} visited={visited}/>
+            <Country country={country} onVisit={onVisit} onBucket={onBucket}/>
         )
     })
 
     return(
-        <div className="">
+        <div className="CountriesList">
             {countryComponents}
         </div>
     )

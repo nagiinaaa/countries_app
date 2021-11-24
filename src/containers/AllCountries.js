@@ -12,13 +12,25 @@ const AllCountries = () => {
         .then(data => setCountries(data))
     }, []); 
 
+    const updateBucket = (id)=>{
+        const countryToUpdate = countries.find(country => country.id === id);
+        countryToUpdate.bucketList = true;
+    
+    }
+
+    const updateVisited = (id)=>{
+        const countryToUpdate = countries.find(country => country.id === id);
+        countryToUpdate.visited = true;
+    
+    }
+
     
 
     return(
         countries ?
 
         <div>
-            <CountriesList countries={countries} />
+            <CountriesList countries={countries} onVisit={updateVisited} onBucket={updateBucket}/>
 
         </div>
 
