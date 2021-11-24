@@ -1,10 +1,13 @@
 import Country from "./Country";
 
-const CountriesList = ({countries, visited}) => {
+const CountriesList = ({countries, visited, addToBucketList}) => {
 
     const countryComponents = countries.map(country => {
         return(
-            <Country country={country} visited={visited}/>
+            <Country country={country} key={country.ccn3} 
+            visited={visited} addToBucketList={addToBucketList} 
+            
+            />
         )
     })
 
