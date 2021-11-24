@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CountriesList from "../components/CountriesList";
 import Country from "../components/Country";
 
-const CountriesBucketList = () => {
+const AllCountries = () => {
 
     const [countries, setCountries] = useState([]);
 
@@ -32,4 +32,4 @@ const CountriesBucketList = () => {
 
 }
 
-export default CountriesBucketList;
+export default AllCountries;

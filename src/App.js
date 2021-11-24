@@ -1,11 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
 import CountriesBucketList from './containers/CountriesBucketList';
 
 function App() {
   return (
-    
-    <CountriesBucketList />
+    <div className="App">
+      <header className="App-header">
+        <p>
+          <CountriesBucketList/>
+        </p>
+      </header>
+    </div>
   );
 }
 
