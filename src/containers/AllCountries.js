@@ -68,12 +68,17 @@ const AllCountries = () => {
         setInput(s.target.value)
     }
 
+    const sortCountries = countries.sort(function(a, b) {
+        return a.name.common.localeCompare(b.name.common);
+     });
+
     const filteredCountries = 
-        countries.filter((countries)=>{
+        sortCountries.filter((countries)=>{
             return countries.name.common.toLowerCase().includes(input.toLowerCase())
+
         })
 
-
+        
     return(
         countries ?
 
