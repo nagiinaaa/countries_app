@@ -18,6 +18,7 @@ const AllCountries = () => {
         
     }, []);
 
+
     const addToBucketList = (id) => {
         const addCountryToBL = countries.find(country => country.ccn3 === id);
 
@@ -31,7 +32,7 @@ const AllCountries = () => {
         }
         console.log(bucketList.length);
         console.log(countries.length);
-
+                
     }
 
 
@@ -72,6 +73,10 @@ const AllCountries = () => {
         return a.name.common.localeCompare(b.name.common);
      });
 
+     const sortBL = bucketList.sort(function(a, b) {
+        return a.name.common.localeCompare(b.name.common);
+     });
+
     const filteredCountries = 
         sortCountries.filter((countries)=>{
             return countries.name.common.toLowerCase().includes(input.toLowerCase())
@@ -85,7 +90,7 @@ const AllCountries = () => {
         <div>
             <h1>Bucket List</h1>
             <SearchBar searchChange={onSearchChange} value={input}/>
-            <BucketListDisplay bucketList={bucketList} removeFromBucketList={removeFromBucketList}/>
+            <BucketListDisplay bucketList={sortBL} removeFromBucketList={removeFromBucketList}/>
             <CountriesList countries={filteredCountries} addToBucketList={addToBucketList} />
 
         </div>
