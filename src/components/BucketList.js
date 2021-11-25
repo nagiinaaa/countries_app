@@ -2,8 +2,8 @@ const BucketList = ({bucketList, removeFromBucketList}) => {
 
     return (
 
-        <div className="bucketList">
-            <img src={bucketList.flags.png} alt="flag" />
+        <div className="Country" id="BucketListCountry">
+            <img src={bucketList.flags.png} alt="flag" className="Flag"/>
             <h3>Country:</h3>
             <p>{bucketList.name.common}</p>
             <h4>Capital city:</h4>

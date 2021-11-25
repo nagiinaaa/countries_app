@@ -14,10 +14,44 @@ code {
 
 
 
-.country {
-  color: red;
+.App {
+  text-align: center;
 }
 
-.bucketList {
-  color: green;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+.Country{
+  background-color:grey;
+  border: 10px;
+  border-color: black;
+
+}
+
+.Flag{
+  height: 100px;
+  width:190px;
+  
+}
+
+
+.CountriesList{
+  display:grid;
+  grid-template-columns: 20% 20% 20% 20% 20% 20%;
+
+}
+
+#BucketListCountry{
+  /* border: 20px;
+  border-color: blueviolet;
+  margin: 2%; */
+  background-color: turquoise;
+
+}
+
+.VisitedCountry{
+  background-color:lightgreen;
 }

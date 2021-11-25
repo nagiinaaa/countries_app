@@ -5,14 +5,14 @@ const BucketListDisplay = ({bucketList, removeFromBucketList}) => {
     const bLComponents = bucketList.map(bucketList => {
 
         return(
-            <BucketList bucketList={bucketList} removeFromBucketList={removeFromBucketList}/>
+            <BucketList bucketList={bucketList} key={bucketList.ccn3} removeFromBucketList={removeFromBucketList}/>
         )
     })
 
 
 
     return (
-        <div>
+        <div className="CountriesList">
            {bLComponents} 
         </div>
     )

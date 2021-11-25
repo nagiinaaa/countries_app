@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import BucketList from "../components/BucketList";
 import BucketListDisplay from "../components/BucketListDisplay";
 import CountriesList from "../components/CountriesList";
@@ -11,38 +11,46 @@ const AllCountries = () => {
     const [bucketList, setBucketList] = useState([]);
     const [input, setInput] = useState(``);
 
-    useEffect(() => {
+    const getCountries = () => {
         fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(data => setCountries(data))
-        
-    }, []);
+    }
+
+    useEffect(getCountries, []);
 
 
     const addToBucketList = (id) => {
         const addCountryToBL = countries.find(country => country.ccn3 === id);
-
+        
         if(!bucketList.includes(addCountryToBL)){
             console.log("added");
-            bucketList.push(addCountryToBL);            
-            countries.splice(countries.indexOf(addCountryToBL), 1);
-            
+            const newBucketList = [...bucketList];
+            newBucketList.push(addCountryToBL);
+            setBucketList(newBucketList);
+            const newCountries = [...countries];
+            newCountries.splice(countries.indexOf(addCountryToBL), 1);
+            setCountries(newCountries);  
         } else {
-            console.log("country already in bucket list");
+            console.log("country already in bucket list"); 
         }
         console.log(bucketList.length);
         console.log(countries.length);
-                
+               
     }
-
-
+    
+    
     const removeFromBucketList = (id) => {
         const removeCountryFromBL = bucketList.find(country => country.ccn3 === id);
 
         if(bucketList.includes(removeCountryFromBL)){
             console.log("removed");
-            bucketList.splice(bucketList.indexOf(removeCountryFromBL), 1);
-            countries.push(removeCountryFromBL);
+            const newBucketList = [...bucketList];
+            newBucketList.splice(bucketList.indexOf(removeCountryFromBL), 1);
+            setBucketList(newBucketList);
+            const newCountries = [...countries];
+            newCountries.push(removeCountryFromBL);
+            setCountries(newCountries);
         } else {
             console.log("country isn't on bucket list")
         }
@@ -51,18 +59,6 @@ const AllCountries = () => {
         console.log(countries.length);
     }
 
-    
-
-    // const checkIfInBucketList = (id) => {
-    //     const inList = BucketList.find(country => country.ccn3 === id);
-
-    //     if(BucketList.includes(inList)){
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-
-    // }
 
     const onSearchChange = (s) => {
         console.log(s.target.value)
@@ -83,15 +79,48 @@ const AllCountries = () => {
 
         })
 
+
+    const bucketListClick = () => {
+        const newCountries = [];
+        setCountries(newCountries);
+        console.log("clicked");
+    }
+
+    const allCountriesList = () => {
+        getCountries();
+        const newBucketList = [];
+        setBucketList(newBucketList);
+        console.log("all clicked")
+    }
+
+    const addToVisited = (id) => {
+        const vistedCountry = countries.find(country => country.ccn3 === id)
+        vistedCountry.visited = true;
+        const newCountries = [...countries];
+        setCountries(newCountries);
+
+    }
+
+    const removeFromVisited = (id) => {
+        const vistedCountry = countries.find(country => country.ccn3 === id)
+        vistedCountry.visited = false;
+        const newCountries = [...countries];
+        setCountries(newCountries);
+
+    }
+
+
         
     return(
         countries ?
 
         <div>
             <h1>Bucket List</h1>
-            <SearchBar searchChange={onSearchChange} value={input}/>
+            <SearchBar searchChange={onSearchChange} value={input} bucketListClick={bucketListClick} 
+            allCountriesList={allCountriesList}/>
             <BucketListDisplay bucketList={sortBL} removeFromBucketList={removeFromBucketList}/>
-            <CountriesList countries={filteredCountries} addToBucketList={addToBucketList} />
+            <CountriesList countries={filteredCountries} addToBucketList={addToBucketList} 
+            addToVisited={addToVisited} removeFromVisited={removeFromVisited}/>
 
         </div>
 
