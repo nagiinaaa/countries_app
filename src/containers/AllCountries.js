@@ -6,21 +6,24 @@ const AllCountries = () => {
 
     const [countries, setCountries] = useState([]);
 
-    useEffect (() => {
+    const getCountriesData = () => {
         fetch("https://restcountries.com/v3.1/all")
-        .then(response => response.json())
-        .then(data => setCountries(data))
-    }, []); 
+            .then(response => response.json())
+            .then(data => setCountries(data));
+    }
+
+    useEffect(getCountriesData, []);
+
+    const countryToUpdate =(id) =>{countries.find(country => country.id===id)};
 
     const updateBucket = (id)=>{
-        const countryToUpdate = countries.find(country => country.id === id);
         countryToUpdate.bucketList = true;
-    
+        fetch(updateBucket).then(getCountriesData)
     }
 
     const updateVisited = (id)=>{
-        const countryToUpdate = countries.find(country => country.id === id);
         countryToUpdate.visited = true;
+        fetch(updateVisited).then(getCountriesData)
     
     }
 
