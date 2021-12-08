@@ -38,10 +38,11 @@ const AllCountries = () => {
     }
 
     const addToVisited = (id) => {
-        const vistedCountry = countries.find(country => country.ccn3 === id)
-        vistedCountry.visited = true;
+        const visitedCountry = countries.find(country => country.ccn3 === id)
+        visitedCountry.visited = true;
         const updateCountries = [...countries];
         setCountries(updateCountries);
+        console.log(visitedCountry.unMember)
 
     };
 
@@ -115,7 +116,7 @@ const AllCountries = () => {
             <Navbar navAll={navAll} navBucket={navBucket} navVisited={navVisited}/>
             <CountriesList countries={dataToShow} addToBucketList={addToBucketList} removeFromBucketList={removeFromBucketList}
             addToVisited={addToVisited} removeFromVisited={removeFromVisited}/>
-            {/* <CountriesInformationList countries={dataToShow}/> */}
+    
 
         </div>
 

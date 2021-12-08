@@ -9,7 +9,10 @@ const CountriesInformationList = ({countries}) => {
     });
 
     return (
-        <div className="countriesInfoList">{countryInfoComponents}</div>
+        <div className="countriesInfoList">
+            {countryInfoComponents}
+         
+            </div>
     )
         
 

@@ -12,11 +12,10 @@ font-weight: normal;
 font-size: 7vw;
 line-height: 120px;
 
-
 color: #044970;
-
 text-shadow: 5px 5px 0px #0CD3FF;
 }
+
 
 .searchBar {
 position: absolute;
@@ -82,10 +81,11 @@ width: auto;
 font-family: 'Asap', sans-serif;
 text-transform: uppercase;
 font-size: 1vw;
-padding-left: 2%;
+padding: 5%;
 display: flex;
 flex-wrap: nowrap;
 white-space: nowrap;
+border-radius: 32px;
 
 }
 
@@ -106,25 +106,20 @@ padding: 5px;
 
 }
 
-.countryInfo {
-  font-family: 'Asap', sans-serif;
-  font-size:  1vw;
-  text-transform: uppercase;
-  text-align: center;
-  background: #2082BA;
-  color: white;
-  margin: 17.5%;
-  padding: 5px;
-  
+
+
+  .countriesHover {
+    display: none;
   }
 
-  .countriesInfoList {
-  position: absolute;
-  padding-top: 21%;
-  z-index: 9;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  .country:hover .countriesHover {
+    display: block;
+    transition: 0.2s;
+  }
 
+  .country:hover {
+    background: #dcf8ff;
+    transition: 0.2s;
   }
 
 .flag{
@@ -132,6 +127,10 @@ padding: 5px;
   height: 100px;
 }
 
+.country:hover .flag {
+  height: 125px;
+  transition: 0.2s;
+}
 
 .countriesList {
   margin-top: 20%;
@@ -184,3 +183,64 @@ font-family: 'Asap', sans-serif;
     padding: 3%;
     transition: 0.2s;
   }
+
+  @media screen and (max-width: 640px) {
+    .countriesList {
+      grid-template-columns: repeat(2, 1fr);
+    
+    }
+  
+  .flag{
+    height: 60px;
+  }
+
+  .country:hover .flag {
+    height: 85px;
+  }
+
+  .country {
+    font-size:  1.5vw;
+  }
+
+  #unselectedButton{
+    border-radius: 32px;
+    font-size: 1.5vw;
+    padding: 2%;
+  }
+
+  #selectedButton{
+    border-radius: 32px;
+    font-size: 1.5vw;
+    padding: 2%;
+  }
+
+  .title{
+    margin-top: -20%;
+    margin-left: 37.5%;
+  }
+  
+
+  .navBar button {
+    font-size: 1.5vw;
+    border-radius: 32px; 
+  }
+
+  .navBar {
+    margin-left: 40%;
+    margin-top: -2.5%;
+  }
+
+  .searchBar {
+    margin-top: -7%;
+    font-size: 8px;
+  }
+
+  .searchBarButton {
+    margin-top: -7%;
+  }
+
+  #biSearch {
+    font-size: 10px;
+    margin-top: 5%;
+  }
+}
