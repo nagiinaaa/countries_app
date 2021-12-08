@@ -1,10 +1,8 @@
-function searchBar({searchChange, bucketListClick, allCountriesList}) {
+function searchBar({searchChange, input}) {
 
     return(
         <div>
-            <input type="search" placeholder="search..." onChange = {searchChange} />
-            <button onClick={() => allCountriesList()}> Show all </button>
-            <button onClick={() => bucketListClick()}> BucketList </button>
+            <input className="searchBar" type="search" value = {input} placeholder="search..."  onChange = {searchChange}/>
         </div>
     )
 

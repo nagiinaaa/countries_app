@@ -1,12 +1,12 @@
 import Country from "./Country";
 
-const CountriesList = ({countries, addToVisited, addToBucketList, removeFromVisited}) => {
+const CountriesList = ({countries, addToVisited, removeFromBucketList, addToBucketList, removeFromVisited}) => {
 
     const countryComponents = countries.map(country => {
         return(
             <Country country={country} key={country.ccn3} 
             addToVisited={addToVisited} removeFromVisited={removeFromVisited}
-            addToBucketList={addToBucketList} 
+            addToBucketList={addToBucketList} removeFromBucketList={removeFromBucketList}
             
             
             />
@@ -14,7 +14,7 @@ const CountriesList = ({countries, addToVisited, addToBucketList, removeFromVisi
     })
 
     return(
-        <div className="CountriesList">
+        <div className="countriesList">
             {countryComponents}
         </div>
     )
