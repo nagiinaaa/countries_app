@@ -16,6 +16,7 @@ const CountriesList = ({countries, addToVisited, removeFromBucketList, addToBuck
     return(
         <div className="countriesList">
             {countryComponents}
+           
         </div>
     )
 
